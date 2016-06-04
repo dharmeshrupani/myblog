@@ -1,15 +1,127 @@
-<h1>Welcome to my blog</h1>
 
-<% @posts.each do |post| %>
-  <h2> <%= link_to post.title, post %>
-    <p>
-      <%= time_ago_in_words post.created_at %> ago
-    </p>
-    <p>
-      <%= truncate post.content %>
-    </p>
-<% end %>
+<html lang="en">
 
-<p>
-  <%= link_to "new post", new_post_path %>
-</p>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Clean Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+<header class="intro-header"  style="background-image: url('<%= asset_path 'images/home.jpg'%>')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                  <%= link_to image_tag("mypic.jpg", alt: "Dharmesh Rupani", :class => "img-circular hvr-wobble-vertical")%>
+                    <h1 style="text-shadow: 2px 2px #700000 ;">Dharmesh Rupani</h1>
+                    <hr class="small">
+                    <span class="subheading">now I'm running on <span style="color:red;">rails.</span></span>
+
+                    <br>
+                    <ul class="list-inline text-center">
+                      <li>
+                          <a href="https://github.com/dharmeshrupani">
+                              <span class="fa-stack fa-lg hvr-wobble-vertical" style="color:#34308C;">
+                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                              </span>
+                          </a>
+                      </li>
+                        <li>
+                            <a href="http://stackoverflow.com/users/5282616/dharmesh-rupani?tab=profile">
+                                <span class="fa-stack fa-lg hvr-wobble-vertical" style="color:#e68a00;">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-stack-overflow fa-stack-1x fa-inverse" ></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg hvr-wobble-vertical" style="color:#3b5998">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-preview">
+
+                <% @posts.each do |post| %>
+                  <h2 class="post-title"> <%= link_to post.title, post %>
+
+                    <div class="postsubtitle">
+                      <%= truncate post.content %>
+                    </div>
+                    <div class="timestamp">
+                      posted <%= time_ago_in_words post.created_at %> ago
+                    </div>
+                    <hr>
+                <% end %>
+
+            </div>
+
+
+            <!-- Pager -->
+            <ul class="pager">
+                <li class="next">
+                    <a href="#">Older Posts &rarr;</a>
+                </li>
+            </ul>
+            <p>
+              <%= link_to "new post", new_post_path %>
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer style="background-color:#E8E8E8">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p class="copyright text-muted">Copyright &copy; Dharmesh Rupani blog 2016</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+
+</html>
