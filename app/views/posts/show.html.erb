@@ -1,14 +1,86 @@
 <p id="notice"><%= notice %></p>
+<html lang="en">
+<body>
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header"  style="background-image: url('<%= asset_path 'images/post1.jpg'%>')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1 style="text-shadow: 2px 2px black ;"><%= @post.title %></h1>
+                    <div class="timestamp" style="color:white">
+                      posted <%= time_ago_in_words @post.created_at %> ago
+                    </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                  <%= @post.content %>
+                  <div class="a.link" style="color: #FA5858">
+                    <%= link_to 'Edit', edit_post_path(@post) %> |
+                    <%= link_to 'Back', posts_path %>
+                  </div>
+            </div>
+        </div>
+    </div>
+</article>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<!-- Footer -->
+<footer style="background-color:#E8E8E8">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <ul class="list-inline text-center">
+                <li>
+                    <a href="https://github.com/dharmeshrupani">
+                        <span class="fa-stack fa-lg hvr-wobble-vertical" style="color:#34308C;">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+                  <li>
+                      <a href="http://stackoverflow.com/users/5282616/dharmesh-rupani?tab=profile">
+                          <span class="fa-stack fa-lg hvr-wobble-vertical" style="color:#e68a00;">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa fa-stack-overflow fa-stack-1x fa-inverse" ></i>
+                          </span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#">
+                          <span class="fa-stack fa-lg hvr-wobble-vertical" style="color:#3b5998">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                          </span>
+                      </a>
+                  </li>
+
+              </ul>
+                <p class="copyright text-muted">Copyright &copy; Dharmesh Rupani blog 2016</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
