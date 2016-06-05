@@ -1,6 +1,32 @@
-<h1>Editing Post</h1>
 
-<%= render 'form' %>
+<html lang="en">
+<body>
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header"  style="background-image: url('<%= asset_path 'images/post2.jpg'%>')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1 style="text-shadow: 2px 2px black ;">Editing Post</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <%= render 'form' %>
+
+                <%= link_to 'Show', @post %> |
+                <%= link_to 'Back', posts_path %>
+            </div>
+        </div>
+     </div>
+</article>
+
+</body>
+</html>
