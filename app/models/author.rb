@@ -1,4 +1,5 @@
 class Author < ActiveRecord::Base
+
   attr_accessible :email, :password, :password_confirmation
 
   attr_accessor :password
@@ -24,4 +25,5 @@ class Author < ActiveRecord::Base
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
   end
+
 end

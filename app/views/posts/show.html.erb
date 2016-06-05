@@ -26,7 +26,9 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                   <%= @post.content %>
                   <div class="a.link" style="color: #FA5858">
-                    <%= link_to 'Edit', edit_post_path(@post) %> |
+                    <% if logged_in? %>
+                      <%= link_to 'Edit', edit_post_path(@post) %> |
+                    <% end %>
                     <%= link_to 'Back', posts_path %>
                   </div>
             </div>
