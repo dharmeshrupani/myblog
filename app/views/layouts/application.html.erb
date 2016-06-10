@@ -6,6 +6,8 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
+  <%= javascript_include_tag 'ckeditor/ckeditor.js' %>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -73,6 +75,15 @@
   <% end %>
 
   <%= yield %>
+
+  <script type="text/javascript">$(document).ready(function() {
+      if ($('textarea').length > 0) {
+          var data = $('textarea');
+          $.each(data, function(i) {
+              CKEDITOR.replace(data[i].id);
+          });
+      }
+  });</script>
 
 </body>
 </html>
